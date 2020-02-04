@@ -13,7 +13,12 @@ repositories {
 }
 
 dependencies {
+	
+}
+
+dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	testCompile 'com.jayway.jsonpath:json-path'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
