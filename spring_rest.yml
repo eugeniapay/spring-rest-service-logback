@@ -15,7 +15,7 @@ spec:
       containers:
       - name: spring-rest
     # enter the path to your image, be sure to include the correct region prefix
-        image: iad.ocir.io/ideajodsrjdx/demo/spring_rest:latest
+        image: iad.ocir.io/apacaseanset01/epdemo/spring_rest:latest
         ports:
         - containerPort: 80
       imagePullSecrets:
