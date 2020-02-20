@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-rest-deployment
+  name: spring-rest-log-deployment
 spec:
   selector:
     matchLabels:
-      app: spring-rest
+      app: spring-rest-log
   replicas: 1
   template:
     metadata:
       labels:
-        app: spring-rest
+        app: spring-rest-log
     spec:
       containers:
-      - name: spring-rest
+      - name: spring-rest-log
     # enter the path to your image, be sure to include the correct region prefix
-        image: iad.ocir.io/apacaseanset01/epdemo/spring_rest:latest
+        image: iad.ocir.io/apacaseanset01/epdemo/spring_rest_log:latest
         ports:
         - containerPort: 80
       imagePullSecrets:
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-rest-service
+  name: spring-rest-service-log
 spec:
   ports:
   - name: admin
@@ -33,5 +33,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: spring-rest
+    app: spring-rest-log
   type: LoadBalancer
