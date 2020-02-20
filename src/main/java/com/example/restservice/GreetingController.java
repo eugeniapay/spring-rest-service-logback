@@ -19,7 +19,6 @@ public class GreetingController {
 		int cnt = (int) counter.incrementAndGet();
 		
 		System.out.println("--- <Application Log> id : " + cnt + ", name: " + name + " ---");
-		//LOGGER.debug("[Application Log /greeting] name: ", name);
 		return new Greeting(cnt, String.format(template, name));
 	}
 }
