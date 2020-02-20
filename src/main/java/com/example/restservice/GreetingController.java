@@ -16,7 +16,7 @@ public class GreetingController {
 
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		int cnt = counter.incrementAndGet();
+		int cnt = (int) counter.incrementAndGet();
 		
 		System.out.println("--- <Application Log> id : " + cnt + ", name: " + name + " ---");
 		//LOGGER.debug("[Application Log /greeting] name: ", name);
