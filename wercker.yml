@@ -32,10 +32,10 @@ push:
           cp build/libs/*.jar /app.jar
   - internal/docker-build:
     dockerfile: Dockerfile
-    image-name: spring-rest
+    image-name: spring-rest-log
     
   - internal/docker-push:
-            image-name: spring-rest
+            image-name: spring-rest-log
             cmd: 0.0.0.0 8080
             working-dir: $WERCKER_ROOT
             tag: $WERCKER_GIT_COMMIT
@@ -61,7 +61,7 @@ deploy:
         name: Prepare Kubernetes files
         code: |
           mkdir $WERCKER_OUTPUT_DIR/kubernetes
-          mv spring_rest.yml $WERCKER_OUTPUT_DIR/kubernetes
+          mv spring_rest_log.yml $WERCKER_OUTPUT_DIR/kubernetes
     # `apply` is a good command to use here, as it'll create Kubernetes entities if they are missing.
     #- kubectl:
     #    name: remove existing deployment if any
