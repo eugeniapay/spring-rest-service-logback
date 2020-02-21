@@ -12,13 +12,15 @@ public class GreetingController {
 	private static final String template = "Good Evening, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
-	//private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(GreetingController.class);	
+	private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(GreetingController.class);	
 
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		int cnt = (int) counter.incrementAndGet();
 		
 		System.out.println("--- <Application Log> id : " + cnt + ", name: " + name + " ---");
+		LOGGER.debug("--[LOGGER - DEBUG APP LOG] id : " + cnt + ", name: " + name + " ---");
+		LOGGER.info("--[LOGGER - INFO APP LOG] id : " + cnt + ", name: " + name + " ---");
 		return new Greeting(cnt, String.format(template, name));
 	}
 }
