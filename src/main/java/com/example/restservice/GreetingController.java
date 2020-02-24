@@ -18,9 +18,7 @@ public class GreetingController {
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		int cnt = (int) counter.incrementAndGet();
 		
-		System.out.println("--- <Application Log> id : " + cnt + ", name: " + name + " ---");
-		LOGGER.debug("--[LOGGER - DEBUG APP LOG] id : " + cnt + ", name: " + name + " ---");
-		LOGGER.info("--[LOGGER - INFO APP LOG] id : " + cnt + ", name: " + name + " ---");
+		LOGGER.info("--[/greeting] id : " + cnt + ", name: " + name + " ---");
 		return new Greeting(cnt, String.format(template, name));
 	}
 }
